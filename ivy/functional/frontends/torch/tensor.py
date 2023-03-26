@@ -297,6 +297,9 @@ class Tensor:
         self._ivy_array = self.bitwise_or(other, out=out).ivy_array
         return self
 
+    def bitwise_left_shift(self, other):
+        return torch_frontend.bitwise_left_shift(self._ivy_array, other)
+    
     def contiguous(self, memory_format=None):
         return torch_frontend.tensor(self.ivy_array)
 
